@@ -1,0 +1,10 @@
+---
+- name: configure fileserver packages
+  hosts: file
+  vars_files: 
+     - /home/ansible/install/webservers/groups_vars/groups_vars-file
+  tasks:
+  - name: install webserver packages
+    yum:
+      name: '{{ web_package }}'
+      
