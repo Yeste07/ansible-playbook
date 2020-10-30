@@ -1,0 +1,16 @@
+---
+- name: start some services 
+  hosts: ansible1
+  vars:
+    my_services:
+      - crond
+      - sshd
+      - httpd
+      - smb
+ 
+  tasks:
+    name: enable services
+    service:
+      name: "{{ item }}"
+      state: started
+    loop: "{{ my_services }}"
